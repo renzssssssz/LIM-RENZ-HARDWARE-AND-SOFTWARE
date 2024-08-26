@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to My Website</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #000000; /* Black background */
+            color: #f7f700; /* Yellow text color */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            overflow: hidden; /* Prevent scrolling */
+        }
+
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            padding: 20px 0;
+            background: rgba(0, 0, 0, 0.8);
+            color: #f7f700;
+            box-shadow: 0px 0px 15px #f7f700; /* Yellow shadow */
+            overflow: hidden; /* Hide overflow to keep the animation smooth */
+        }
+
+        .moving-text {
+            display: inline-block;
+            white-space: nowrap;
+            animation: moveText 10s linear infinite;
+        }
+
+        @keyframes moveText {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin: 0;
+            text-shadow: 0px 0px 10px #f7f700; /* Yellow glow */
+        }
+
+        .nav-buttons {
+            margin-top: 20px;
+        }
+
+        .nav-buttons a {
+            display: inline-block;
+            background: #f7f700; /* Yellow background */
+            color: #000000; /* Black text */
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 5px;
+            border-radius: 5px;
+            font-size: 1.2em;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .nav-buttons a:hover {
+            background: #ffd700; /* Lighter yellow */
+            transform: scale(1.1);
+        }
+
+        .container {
+            width: 80%;
+            max-width: 1000px;
+            text-align: center;
+            padding: 20px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0px 0px 15px 5px rgba(255, 255, 0, 0.2); /* Yellow shadow */
+        }
+
+        .content {
+            display: none;
+        }
+
+        .active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1 class="moving-text">Welcome to My Website</h1>
+        <div class="nav-buttons">
+            <a href="#hardware">Hardware</a>
+            <a href="#software">Software</a>
+        </div>
+    </header>
+
+    <div id="hardware" class="container content">
+        <h2>Hardware Section</h2>
+        <div class="hardware-list">
+            <!-- Hardware content goes here -->
+        </div>
+    </div>
+
+    <div id="software" class="container content">
+        <h2>Software Section</h2>
+        <div class="software-list">
+            <!-- Software content goes here -->
+        </div>
+    </div>
+
+    <script>
+        // Show the section based on the URL hash
+        function showSection() {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                document.querySelectorAll('.content').forEach(section => {
+                    section.classList.remove('active');
+                });
+                const section = document.getElementById(hash);
+                if (section) {
+                    section.classList.add('active');
+                }
+            } else {
+                // Default to showing the hardware section if no hash is present
+                document.getElementById('hardware').classList.add('active');
+            }
+        }
+
+        // Call showSection on page load and when hash changes
+        window.addEventListener('load', showSection);
+        window.addEventListener('hashchange', showSection);
+    </script>
+</body>
+</html>

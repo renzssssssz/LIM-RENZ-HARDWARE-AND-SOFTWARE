@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #000000; /* Black background */
+            color: #f7f700; /* Yellow text color */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 1000px;
+            text-align: center;
+            padding: 20px;
+            border-radius: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0px 0px 15px 5px rgba(255, 255, 0, 0.2); /* Yellow shadow */
+        }
+
+        header {
+            position: relative;
+            width: 100%;
+            padding: 20px 0;
+        }
+
+        header img {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 80px;
+            height: auto;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin-bottom: 30px;
+            text-shadow: 0px 0px 10px #f7f700; /* Yellow glow */
+        }
+
+        .software-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .software-item {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            margin: 20px;
+            padding: 20px;
+            width: 220px;
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+            position: relative;
+            border: 2px solid #f7f700; /* Yellow border */
+        }
+
+        .software-item:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 0, 0.2); /* Light yellow background on hover */
+        }
+
+        .software-item h2 {
+            font-size: 1.4em;
+            margin: 0;
+        }
+
+        .display-area {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8); /* Darker background for the display area */
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px #f7f700; /* Yellow shadow */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .display-area img {
+            max-width: 100%;
+            max-height: 200px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px #f7f700; /* Yellow shadow */
+            margin-bottom: 20px;
+        }
+
+        .description {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="logo-placeholder.png" alt="Logo">
+            <h1>Software</h1>
+        </header>
+        <div class="software-list">
+            <div class="software-item" onclick="showDetails('windows.jpg', 'Microsoft Windows - An operating system providing a graphical interface for users to manage hardware and software.')">
+                <h2>Windows</h2>
+            </div>
+            <div class="software-item" onclick="showDetails('photoshop.jpg', 'Adobe Photoshop - A graphic design and photo editing software for creating and editing raster graphics and photographs.')">
+                <h2>Photoshop</h2>
+            </div>
+            <div class="software-item" onclick="showDetails('office.jpg', 'Microsoft Office Suite - A suite of productivity software including Word, Excel, PowerPoint, and Outlook.')">
+                <h2>Office Suite</h2>
+            </div>
+            <div class="software-item" onclick="showDetails('chrome.jpg', 'Google Chrome - A web browser known for fast browsing speeds and a simple interface.')">
+                <h2>Chrome</h2>
+            </div>
+            <div class="software-item" onclick="showDetails('autocad.jpg', 'AutoCAD - A computer-aided design (CAD) software for drafting and designing 2D and 3D models.')">
+                <h2>AutoCAD</h2>
+            </div>
+        </div>
+        <div class="display-area" id="imageDisplay">
+            <!-- Image and description will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        function showDetails(imageSrc, description) {
+            const imageDisplay = document.getElementById('imageDisplay');
+            imageDisplay.innerHTML = `
+                <img src="${imageSrc}" alt="Software Image">
+                <div class="description">${description}</div>
+            `;
+        }
+    </script>
+</body>
+</html>
